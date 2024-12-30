@@ -63,7 +63,7 @@ export default function Home() {
     <div className="flex justify-center pt-16">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle className="text-blue-800">Type Ingredients</CardTitle>
+          <CardTitle className="text-slate-900">Type Ingredients</CardTitle>
           <CardDescription>Delicious recepies just a click away.</CardDescription>
         </CardHeader>
         <CardContent>
@@ -77,18 +77,18 @@ export default function Home() {
           </form>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button className="bg-gradient-to-br from-cyan-400 to-violet-700" onClick={apiConnection}>Generate!</Button>
+          <Button className="bg-gradient-to-br from-slate-400 to-slate-700" onClick={apiConnection}>Generate!</Button>
         </CardFooter>
       </Card>
     </div>
 
     <div>
       {hasResult && (
-        <div className="flex justify-center pt-16">
-        <div className="prose"> {/* Apply Tailwind prose class for styling */}
-          <ReactMarkdown>{result}</ReactMarkdown>
+        <div className="flex justify-center pt-16 p-8">
+          <div className="prose"> {/* Apply Tailwind prose class for styling */}
+            <ReactMarkdown>{result}</ReactMarkdown>
+          </div>
         </div>
-      </div>
       )}
     </div>
     </>
