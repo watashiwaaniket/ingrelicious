@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import ReactMarkdown from 'react-markdown';
+import Header from "@/components/Header";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,6 +15,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import Footer from "@/components/Footer";
 
 
 
@@ -56,41 +58,43 @@ export default function Home() {
 
   return (
     <>
-    <div className="flex justify-center w-full p-6 bg-gradient-to-br from-cyan-400 to-violet-700" >
-      <h2 className="font-bold text-2xl text-white">Ingrelicious!</h2>
-    </div>
+    <Header/>
 
-    <div className="flex justify-center pt-16">
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle className="text-slate-900">Type Ingredients</CardTitle>
-          <CardDescription>Delicious recepies just a click away.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="title">Ingredients</Label>
-                <Input id="ingredients" placeholder="Type your Ingredients" value={ingredients} onChange={handleIngredientsChange}/>
+    {/* <div className="h-[80vh]"> */}
+      <div className="flex justify-center pt-16 ">
+        <Card className="w-[380px] bg-[#F39E60] border-[#9F5255] border-4">
+          <CardHeader>
+            <CardTitle className="text-[#7C444F]">Turn Ingredients to Delicacies!</CardTitle>
+            <CardDescription className="text-[#FFEEAD]">Delicious recepies just a click away.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form>
+              <div className="grid w-full items-center gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="title" className="text-[#7C444F] ">Type your Ingredients</Label>
+                  <Input id="ingredients" value={ingredients} onChange={handleIngredientsChange} className="bg-[#F39E60] border-2 border-[#9F5255] text-[#FFEEAD]"/>
+                </div>
               </div>
-            </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button className="bg-gradient-to-br from-slate-400 to-slate-700" onClick={apiConnection}>Generate!</Button>
-        </CardFooter>
-      </Card>
-    </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button className="bg-[#9F5255] text-[#FFEEAD]" onClick={apiConnection}>Generate!</Button>
+          </CardFooter>
+        </Card>
+      </div>
 
-    <div>
-      {hasResult && (
-        <div className="flex justify-center pt-16 p-8">
-          <div className="prose"> {/* Apply Tailwind prose class for styling */}
-            <ReactMarkdown>{result}</ReactMarkdown>
+      <div>
+        {hasResult && (
+          <div className="flex justify-center pt-16 p-8">
+            <div className="prose"> {/* Apply Tailwind prose class for styling */}
+              <ReactMarkdown>{result}</ReactMarkdown>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    {/* </div> */}
+
+    <Footer />
     </>
   )
 }
