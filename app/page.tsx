@@ -64,7 +64,7 @@ export default function Home() {
 
     {/* <div className="h-[80vh]"> */}
       <div className="flex justify-center pt-16 ">
-        <Card className="w-[400px] bg-[#F39E60] border-[#9F5255] border-4">
+        <Card className="w-[400px] bg-[#F39E60] border-[#9F5255] border-4 md:w-[580px]">
           <CardHeader>
             <CardTitle className="text-[#7C444F]">Turn Ingredients to Delicacies!</CardTitle>
             <CardDescription className="text-[#FFEEAD]">Delicious recepies just a click away.</CardDescription>
