@@ -39,9 +39,11 @@ export default function Home() {
       const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-      const prompt = `Use the ingredients which I'm giving to generate me a recipe out of it, here are the ingredients: ${ingredients}`;
+      const prompt = `Use the ingredients which I'm giving to generate me a recipe out of it, here are the ingredients: ${ingredients}, make sure your response contains Title, Yeilds, Prep Time, Cook Time, Ingredients, Instructions, Tips and Variations and how much time you can store it till it goes bad`;
 
       const response = await model.generateContent(prompt);
+
+      console.log(response)
 
       // Correctly access the text from the response object
       const generatedText = response?.response?.text || "No content generated.";
@@ -62,7 +64,7 @@ export default function Home() {
 
     {/* <div className="h-[80vh]"> */}
       <div className="flex justify-center pt-16 ">
-        <Card className="w-[380px] bg-[#F39E60] border-[#9F5255] border-4">
+        <Card className="w-[400px] bg-[#F39E60] border-[#9F5255] border-4">
           <CardHeader>
             <CardTitle className="text-[#7C444F]">Turn Ingredients to Delicacies!</CardTitle>
             <CardDescription className="text-[#FFEEAD]">Delicious recepies just a click away.</CardDescription>
@@ -87,7 +89,7 @@ export default function Home() {
         {hasResult && (
           <div className="flex justify-center pt-16 p-8">
             <div className="prose"> {/* Apply Tailwind prose class for styling */}
-              <ReactMarkdown>{result}</ReactMarkdown>
+              <ReactMarkdown className="text-[#7C444F]">{result}</ReactMarkdown>
             </div>
           </div>
         )}
